@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이름, 나이전송</title>
+</head>
+<body>
+	<form action="test03" method="post">
+<!-- 	디폴트는 get방식이지만 method=""값 넣어줘서도 가능 ? -->
+		<h2>이름 <input type="text" name="name"></h2>
+		<h2>나이 <input type="number" name="age"></h2>
+<!-- 		text로 하든 number로 하든 파라미터 전달될 때는 문자열로 전달됨 -->
+		<input type="submit" value="서버로 전송">
+<!-- 		서버로 전송하면 주소 : http://localhost:8080/01_Servlet/test03?name=kim&age=29 -->
+<!-- 		나열할 때 & 기호 씀 -->
+	</form>
+</body>
+</html>
