@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- 수정에 용이하다 -->
-<!-- 확장자 jsp ==> 서블릿으로 자동 변경처리가 된다 -->
+<!-- 확장자 jsp-->서블릿으로 자동 변경처리가 된다 -->
 <!-- 단순 text만 써도 되는 거는 jsp로 작성하지 않아도 된다. -->
 <!-- 이러다가 컴파일 오류가 날 수도 있다 -->
 

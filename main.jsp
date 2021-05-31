@@ -17,8 +17,10 @@
 	
 	<hr><hr>
 	<%--디렉티브(지시어, directive) include : copy & paste 적용됨 --%>
-	<%@ include file="footer.jsp" %>
+	<%@ include file="01_declaration.jsp" %>
+	<%@ include file="02_scriptlet.jspf" %>
 	
+	<%@ include file="footer.jsp" %>
 	<hr>
 	<footer>
 	비트캠프 ｜ 서울시 서초구 강남대로 459 (서초동, 백암빌딩)｜ 사업자등록번호 : 214-85-24928

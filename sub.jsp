@@ -17,7 +17,8 @@
 	
 	<hr><hr>
 	<%--디렉티브(지시어, directive) include : copy & paste 적용됨 --%>
-	<%@ include file="footer.jsp" %>
+	<%@ include file="01_declaration.jsp" %>
+	<%@ include file="02_scriptlet.jspf" %>
 	
 	<hr>
 	<footer>
