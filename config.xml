@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+<!-- 		VO가 선언만 되고 값이 안 들어가면 값이 없어서 오류난다 -> null값으로 넣어줘라!라고 지정해주는 것   -->
+	</settings>
+	<typeAliases>
+<!-- 		자주쓰는 문자열 별칭 등록해주기  -->
+		<typeAlias type="com.bc.mybatis.GuestbookVO" alias="guestbookVO" />
+	</typeAliases>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="oracle.jdbc.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="mystudy"/>
+        <property name="password" value="mystudypw"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <mappers>
+    <mapper resource="com/bc/mybatis/mapper.xml"/>
+<!--     파일명 대소문자 엄격하게 구분함!  오류 났었음 -->
+  </mappers>
+</configuration>

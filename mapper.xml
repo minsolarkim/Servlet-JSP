@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="guestbook">
+
+	<!--  select 태그 안 3개 속성 id, parameterType, resultType
+		id : 사용할 명칭(필수항목), 현재 매퍼에서 유일한 이름 사용
+		parameterType : 전달받은 파라미터 데이터 타입 지정 (선택적)
+		resultType : 조회 결과값 저장하기 위한 데이터 타입
+			(데이터 하나에 대한 타입 지정)
+	-->
+<!-- 	<select id="all" parameterType="" resultType="com.bc.mybatis.GuestbookVO"> -->
+	<select id="all" resultType="com.bc.mybatis.GuestbookVO">
+		SELECT * 
+    	FROM GUESTBOOK
+    	ORDER BY IDX
+<!--     	여기엔 ;쓰면 절대 안된다 ==> invalid character 이렇게만 나와서 찾기 힘들다 -->
+	</select>
+	
+	<select id="one" parameterType="string" resultType="guestbookVO">
+		SELECT IDX, NAME, SUBJECT, CONTENT, EMAIL, PWD, REGDATE
+		FROM GUESTBOOK
+		WHERE IDX = #{idx}
+	</select>
+	
+	<insert id="insert" parameterType="com.bc.mybatis.GuestbookVO">
+		INSERT INTO GUESTBOOK
+    		(IDX, NAME, SUBJECT, CONTENT, EMAIL, PWD, REGDATE)
+    	 VALUES (GUESTBOOK_SEQ.NEXTVAL, #{name }, #{subject }, #{content }, #{email }, #{pwd }, SYSDATE - 3)
+	</insert>
+	<!--          자바에서는 ? 썼지만 여기서는 #{} 이렇게 해준다!!! ${}가 아니고 #{}!!!!!-->
+	
+	<update id="update" parameterType="guestbookVO" >
+		UPDATE GUESTBOOK
+	   		SET NAME = #{name },
+	        SUBJECT = #{subject },
+	        EMAIL = #{email },
+	        CONTENT = #{content },
+	        REGDATE = SYSDATE
+    	WHERE IDX = #{idx}
+		
+	</update>
+	
+	<delete id="delete" parameterType="string">
+		DELETE FROM GUESTBOOK WHERE IDX = #{idx}
+	</delete>
+	
+	
+	
+</mapper>
