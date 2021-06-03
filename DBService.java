@@ -1,4 +1,4 @@
-package com.bc.mybatis;
+package com.bc.bbs.mybatis;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -31,7 +31,7 @@ public class DBService {
 			//한 번만 만들면 돼서 한 줄로 작성해버린 것
 			//---------------------------------
 			factory = new SqlSessionFactoryBuilder()
-					.build(Resources.getResourceAsReader("com/bc/mybatis/config.xml"));
+					.build(Resources.getResourceAsReader("com/bc/bbs/mybatis/config.xml"));
 				//이 메소드 중에 build(Reader) 등 받아서 쓸 수 있다
 				//최종적으로 Reader 객체가 오고 저 안에는 문자열 오면 된다 ""
 				//Resources 중에서 myBatis 꺼 써야함
