@@ -1,71 +1,31 @@
-package com.bc.bbs.dao;
+package com.bc.model;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import com.bc.model.vo.EmployeeVO;
 import org.apache.ibatis.session.SqlSession;
 
-import com.bc.bbs.mybatis.DBService;
-import com.bc.bbs.vo.BBSVO;
-import com.bc.bbs.vo.CommVO;
+import com.bc.mybatis.DBService;
 
 public class DAO {
-	
-	//게시글(BBS_T)의 전체 조회 건수 조회
-	public static int getTotalCount() {
+
+	//직원 전체 목록 조회
+	public static List<EmployeeVO> getList() {
 		SqlSession ss = DBService.getFactory().openSession();
-		int totalCount =  ss.selectOne("BBS.totalCount");
-		ss.close();
-		return totalCount;
-	}
-	
-	//begin-end 값 두개 지정해줘서 
-	//페이지에 해당하는 글목록(게시글) 가져오기 -- 데이터 여러개 넘어온다.
-	// 하나의 데이터는 VO에 담고 그 VO들의 집합을 list에 담는다
-	public static List<BBSVO> getList(Map<String, Integer> map) {
-		SqlSession ss = DBService.getFactory().openSession();
-		List<BBSVO> list =  ss.selectList("BBS.list", map);
+		List<EmployeeVO> list = ss.selectList("HR.list");
 		ss.close();
 		return list;
 	}
 	
-	//이렇게도 할 수 있다. int 2개 받고 Map타입을 안에서 생성해주기
-	public static List<BBSVO> getList(int begin, int end) {
+	//이름으로 검색
+	public static List<EmployeeVO> fullnameList(String fullname) {
 		SqlSession ss = DBService.getFactory().openSession();
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("begin", begin);
-		map.put("end", end);
-		List<BBSVO> list =  ss.selectList("BBS.list", map);
+		List<EmployeeVO> list = ss.selectList("HR.fullnameList", fullname); //전달받은 값 넣어줘야 한다
 		ss.close();
 		return list;
+		//위에 list코드와 비슷하지만 파라미터값 있는 것과 HR.다음 값 달라졌고 전달받은 값 넣어줘야함
 	}
 	
-	//게시글 데이터 1개 조회
-	public static BBSVO selectOne(String b_idx) {
-		SqlSession ss = DBService.getFactory().openSession();
-		BBSVO vo = ss.selectOne("BBS.one", b_idx);
-		ss.close();
-		return vo;
-	}
 	
-	//조회수 1증가 처리(나중에 해보기)
-	public static void updateHit(int b_idx) {
-		
-	}
-	
-	//===========댓글관련================
-	public static List<CommVO> getCommList(String b_idx) {
-		SqlSession ss = DBService.getFactory().openSession();
-		List<CommVO> list =  ss.selectList("BBS.commList", b_idx);
-		ss.close();
-		return list;
-	}
 	
 }
-
-
-
-
-
-

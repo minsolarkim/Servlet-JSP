@@ -9,7 +9,7 @@
 	</settings>
 	<typeAliases>
 <!-- 		자주쓰는 문자열 별칭 등록해주기  -->
-		<typeAlias type="com.bc.bbs.vo.BBSVO" alias="BBSVO" />
+<!-- 		<typeAlias type="com.bc.bbs.vo.BBSVO" alias="BBSVO" /> -->
 	</typeAliases>
   <environments default="development">
     <environment id="development">
@@ -17,14 +17,14 @@
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.OracleDriver"/>
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-        <property name="username" value="mystudy"/>
-        <property name="password" value="mystudypw"/>
+        <property name="username" value="hr"/>
+        <property name="password" value="hr"/>
       </dataSource>
     </environment>
   </environments>
   
   <mappers>
-    <mapper resource="com/bc/bbs/mybatis/mapper.xml"/>
+    <mapper resource="com/bc/mybatis/mapper.xml"/>
 <!--     파일명 대소문자 엄격하게 구분함!  오류 났었음 -->
   </mappers>
 </configuration>
