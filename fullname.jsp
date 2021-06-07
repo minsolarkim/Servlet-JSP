@@ -8,9 +8,10 @@
 </head>
 <body>
 	<h2>이름으로 검색(fullname.jsp)</h2>
-	<form action="fullnameList" method="post">
+	<form action="controller" method="get">
 		이름 : <input type="text" name="fullname">
 		<input type="submit" value="이름으로 검색">
+		<input type="hidden" name="type" value="fullnameList">
 	</form>
 </body>
 </html>

@@ -21,11 +21,12 @@
 		    ORDER BY EMPLOYEE_ID
 	</select>
 	
-<!-- 	<select id="fullnameList" parameterType="string" resultType="com.bc.model.vo.EmployeeVO"> -->
-<!-- 			SELECT * -->
-<!-- 			    FROM EMPLOYEES -->
-<!-- 			    WHERE FIRST_NAME LIKE '%'|| INITCAP(#{fullname}) ||'%' -->
-<!-- 			        OR LAST_NAME LIKE '%'|| INITCAP(#{fullname}) ||'%' -->
-<!-- 	</select> -->
+	<!-- 부서 직원 조회 -->
+	<select id="deptno" parameterType="string" resultType="com.bc.model.vo.EmployeeVO">
+		SELECT *
+	    FROM EMPLOYEES
+	    WHERE DEPARTMENT_ID = #{deptno}
+	    ORDER BY EMPLOYEE_ID
+	</select>
 	
 </mapper>
